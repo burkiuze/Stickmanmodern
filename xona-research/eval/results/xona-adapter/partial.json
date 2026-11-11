@@ -50,5 +50,70 @@
     "turkish": true,
     "score": 6,
     "answer": "Atlas 4.2, 30 Haziran 2024 tarihinde kararlı sürüm olarak yayınlandı [1]. Atlas 5.0 ise 14 Eylül 2026 tarihinde kararlı sürüm olarak yayınlandı [2]. Kaynak [2]'de belirtilen \"bugün\" ifadesi, kaynak metni içindeki tarih (2026-09-14) ile örtüşmektedir.\n\nSonuç: Kaynaklara göre en güncel kararlı sürüm Atlas 5.0'dır.\n"
+  },
+  {
+    "id": "fact_check",
+    "type": "fact_check",
+    "seconds": 22.9,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "'Mavi Göl Milli Parkı'na 2025 yılında 2 milyon kişi gelmedi; kaynaklara göre 1,2 milyon ziyaretçi ağırlmıştır [1]. Kaynakta belirtilen 2 milyonluk rakam ile gerçek 1,2 milyonluk rakam arasında çelişmektedir [1].\n\nSonuç: İddia kaynaklara göre yanlıştır.\n"
+  },
+  {
+    "id": "multi_step",
+    "type": "answerable",
+    "seconds": 31.8,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Arda Elektronik'in 2025 ilk yarı geliri 400 milyon TL [1] ve 2026 ilk yarı geliri 500 milyon TL [2] olarak belirtilmiştir. Bu iki veri arasındaki artış oranı hesaplandığında, 2026 ilk yarısına göre 2025 ilk yarısına kıyasla yüzde 25 artış olduğu görülmektedir.\n\nSonuç: Arda Elektronik'in 2026 ilk yarı geliri, 2025 ilk yarısına göre %25 artmıştır.\n"
+  },
+  {
+    "id": "unreliable_source",
+    "type": "unreliable",
+    "seconds": 96.6,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Sağlanan kaynaklara göre, kırmızı çayın her gün içilmesinin uykusuzluğu \"tamamen tedavi ettiğine\" dair güvenilir bilimsel kanıt bulunmamaktadır.\n\n*   **İddialı ama belgelenmemiş kaynaklar:** [1] numaralı kaynakta \"Bu çayı içen bir daha uykusuz kalmıyor\" ve \"Kırmızı çay içenlerin hepsi uykusuzluktan kurtuldu\" gibi kesin ifadeler yer almaktadır. Ancak bu kaynakta kaynak belirtilmemiştir ve bu tür mutlak iddiaların bilimsel bir temeline dayanıp dayanmadığı sorgulanmalıdır. Ayrıca, bu kaynaktaki tarih (2026-07-01) mevcut tarihten (2025) daha sonradır ve gelecekteki bir tarih olarak değerlendirildiğinde güvenilirliği zayıflamaktadır.\n*   **Bilimsel veriler:** [2] numaralı kaynakta yapılan sistematik derleme, incelenen 14 çalışmada bitki çaylarının uyku kalitesine etkisinin \"küçük ve tutarsız\" olduğunu belirtmektedir. Bu kaynak ayrıca, \"kırmızı çay için kontrollü çalışma bulunmuyor\" bilgisini vermektedir.\n\nSonuç olarak, kırmızı çayın uykusuzluğu tamamen tedavi ettiği iddiası, mevcut bilimsel çalışmalardan ziyade belgelenmemiş ve tarihsel olarak sorunlu iddialara dayanmaktadır. Kaynaklarda kırmızı çay için kontrollü çalışma olmadığı için bu konuda kesin bir yargıya varılamaz.\n"
+  },
+  {
+    "id": "no_invented_quote",
+    "type": "unanswerable",
+    "seconds": 22.9,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Prof. Selin Aydın, yapay zekâ düzenlemesinin \"risk temelli olması gerektiğini\" savundu [1]. Ancak konuşmasının tam metni yayımlanmadığı için doğrudan bir alıntı verilememektedir [1]. Kaynaklarda Prof. Selin Aydın'ın başka bir görüşü veya farklı bir alıntısı bulunmamaktadır.\n"
+  },
+  {
+    "id": "compare",
+    "type": "answerable",
+    "seconds": 33.5,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "A modeli COP değeri 4,1 ve liste fiyatı 180.000 TL'dir [1]. B modeli COP değeri 4,6 ve liste fiyatı 235.000 TL'dir [2]. Kaynaklarda bu iki modelin verim ve fiyat açısından karşılaştırması yapılmıştır.\n\nSonuç: B modeli, A modeline göre daha yüksek COP değeri (daha iyi verim) sunarken, daha yüksek bir liste fiyatı (235.000 TL) talep etmektedir.\n"
   }
 ]
