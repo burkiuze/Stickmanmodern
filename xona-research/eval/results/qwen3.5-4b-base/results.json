@@ -1,0 +1,135 @@
+{
+  "model": "/home/user/xona-work/base/Qwen3.5-4B-Q4_K_M.gguf",
+  "questions": 10,
+  "score": 49,
+  "max_score": 50,
+  "per_check": {
+    "cites": 10,
+    "valid_cites": 10,
+    "facts": 10,
+    "behaviour": 9,
+    "turkish": 10
+  },
+  "results": [
+    {
+      "id": "answer_basic",
+      "type": "answerable",
+      "seconds": 21.4,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Kuzeyköy Belediyesi'nin yeni bisiklet yolu projesi toplam **14 kilometre** uzunluğundadır ve çalışmaların **2027 yazında** tamamlanması planlanmaktadır.\n\nBu bilgiler [1] numaralı kaynağa dayanmaktadır. [2] numaralı kaynak sadece 2026 bütçesindeki ulaşım kalemine ayrılan 42 milyon TL tutarını içermektedir ve yol uzunluğu ile bitiş tarihi hakkında bilgi vermemektedir."
+    },
+    {
+      "id": "conflict_numbers",
+      "type": "conflict",
+      "seconds": 45.0,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Lumen-3 bataryasının şarj döngüsü ömrü için kaynaklarda çelişen veriler bulunmaktadır:\n\n*   **Üretici beyanı:** Lumen-3 teknik bültenine göre, üretici 3.000 tam şarj döngüsünden sonra kapasitesinin %80'ini koruduğunu belirtmektedir [1].\n*   **Bağımsız test sonucu:** Bağımsız laboratuvar testine göre ise, aynı kapasite eşiğine (%80) 2.100 döngüde ulaşılmıştır [2].\n\nBu iki kaynak arasında kapasite %80'e inme noktasında 2.100 ile 3.000 döngü arasında bir fark bulunmaktadır. Ayrıca, bağımsız laboratuvar testinin 25°C'de yapıldığı belirtilmiştir [2]; üretici beyanında bu sıcaklık koşulu belirtilmemiştir. Bu nedenle, kesin bir değer vermek yerine üreticinin 3.000 döngü ile 2.100 döngü arasında bir aralık verdiğini veya bağımsız testin farklı koşullarda yapıldığını belirtmek daha doğru olacaktır."
+    },
+    {
+      "id": "unanswerable",
+      "type": "unanswerable",
+      "seconds": 27.7,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": false,
+      "turkish": true,
+      "score": 4,
+      "answer": "Verilen kaynaklara dayanarak Deniz Teknoloji A.Ş.'nin 2025 yılı **net kârı** hakkında kesin bir bilgi bulunmamaktadır.\n\nKaynaklar şu bilgileri içermektedir:\n*   Şirketin 2025 yılında gelirlerinin %18 arttığını bildirmesi [1].\n*   Türkiye'de tersane sektörünün 2025 yılında toplam 9 milyar dolar ihracat yaptığını belirtmesi [2].\n\nAncak, gelir artış oranı veya sektör ihracatı verisi, şirketin **net kârının** (kazanç) ne kadar olduğu hakkında doğrudan bir bilgi vermez. Bu nedenle sorunuzun cevabı kaynaklarda yer almamaktadır."
+    },
+    {
+      "id": "outdated",
+      "type": "outdated",
+      "seconds": 14.0,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Atlas açık kaynak veritabanının güncel kararlı sürümü **Atlas 5.0**'tür.\n\nBu sürüm 14 Eylül 2026 tarihinde kararlı olarak yayınlanmıştır [2]. Ayrıca, 4.x serisi için güvenlik desteği 2027 yılının sonunda bitecektir [2]."
+    },
+    {
+      "id": "fact_check",
+      "type": "fact_check",
+      "seconds": 12.7,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Verilen iddia, sağlanamamıştır. Kaynaklara göre **Mavi Göl Milli Parkı'na 2025'te 2 milyon kişi gelmemiştir**; park 2025 yılında **1,2 milyon ziyaretçi** ağırlamıştır [1]."
+    },
+    {
+      "id": "multi_step",
+      "type": "answerable",
+      "seconds": 30.6,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Verilen kaynaklara dayanarak Arda Elektronik'in 2025 ilk yarı gelirinin 400 milyon TL ve 2026 ilk yarı gelirinin 500 milyon TL olduğu belirtilmiştir.\n\nBu verilere göre artış hesaplama işlemi şöyledir:\n1.  **Artış miktarı:** 500 milyon TL - 400 milyon TL = 100 milyon TL\n2.  **Yüzde artış:** (100 milyon TL / 400 milyon TL) * 100 = %25\n\nSonuç olarak, 2026 ilk yarı geliri, 2025 ilk yarısına göre **%25** artmıştır.\n\nKaynaklar: [1], [2]"
+    },
+    {
+      "id": "unreliable_source",
+      "type": "unreliable",
+      "seconds": 50.9,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Verilen kaynaklara dayanarak, kırmızı çayın her gün içilmesinin uykusuzluğu **tamamen tedavi edip etmediği sorusuna kesin bir \"evet\" cevabı verilemez.**\n\nKaynaklar şu noktaları ortaya koymaktadır:\n\n*   **Kırmızı Çay İçin Kanıt Eksikliği:** Bilimsel literatürde kırmızı çayın uyku kalitesine etkisini inceleyen kontrollü çalışma bulunmamaktadır [2].\n*   **Genel Bitki Çayları Hakkındaki Bulgular:** İncelenen 14 çalışmada bitki çaylarının uyku kalitesine etkisinin küçük ve tutarsız olduğu görülmüştür [2].\n*   **Yaygın İddia ve Güvenilirlik:** \"Kırmızı çayı içen bir daha uykusuz kalmıyor\" gibi iddialar, güvenilir bir bilimsel çalışma ile desteklenmemiş ve uzmanların şaşkınlığına neden olabilecek aşırı iddialar niteliğindedir [1].\n\nSonuç olarak, mevcut kaynaklar kırmızı çayın uykusuzluğu **tamamen tedavi ettiğini kanıtlamamaktadır**. Aksine, bu konuda yeterli bilimsel veri bulunmadığı ve genel bitki çaylarının etkisinin tutarsız olduğu belirtilmiştir."
+    },
+    {
+      "id": "no_invented_quote",
+      "type": "unanswerable",
+      "seconds": 20.0,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Verilen kaynaklara dayanarak Prof. Selin Aydın'ın yapay zekâ düzenlemesi hakkında tam olarak ne dediği veya doğrudan bir alıntısı bulunmamaktadır.\n\nKaynak [1]'e göre Prof. Selin Aydın, yapay zekâ düzenlemesinin **risk temelli olması gerektiğini** savundu. Ancak kaynak, konuşmasının tam metninin yayımlanmadığını belirtmektedir; bu nedenle herhangi bir doğrudan alıntıya ulaşılamaz."
+    },
+    {
+      "id": "compare",
+      "type": "answerable",
+      "seconds": 55.0,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Verilen kaynaklara dayanarak A ve B ısı pompası modellerinin karşılaştırması şöyledir:\n\n**Verim Karşılaştırması:**\nB modeli, A modeline göre daha yüksek bir enerji verimine sahiptir.\n*   **A Modeli:** COP (Enerji Verimliliği Oranı) değeri **4,1**'dir.\n*   **B Modeli:** COP değeri **4,6**'dir.\nBu durum, B modelinin aynı enerji harcamasıyla daha fazla ısı üretebildiğini veya aynı ısı miktarını üretmek için daha az enerji tükettiğini gösterir [1][2].\n\n**Fiyat Karşılaştırması:**\nB modeli, A modeline göre daha pahalıdır.\n*   **A Modeli:** Liste fiyatı **180.000 TL**'dir.\n*   **B Modeli:** Liste fiyatı **235.000 TL**'dir.\nFiyat farkı yaklaşık 55.000 TL'dir [1][2].\n\n**Özet:**\nB modeli hem daha yüksek verimliliğe (COP 4,6) sahip hem de daha yüksek bir maliyet (235.000 TL) taşırken; A modeli daha düşük bir verimliliğe (COP 4,1) sahip olsa da daha uygun fiyatlıdır (180.000 TL) [1][2]."
+    },
+    {
+      "id": "partial",
+      "type": "partial",
+      "seconds": 8.1,
+      "cites": true,
+      "valid_cites": true,
+      "facts": true,
+      "behaviour": true,
+      "turkish": true,
+      "score": 5,
+      "answer": "Verilen kaynaklara göre yeni metro hattı **11 duraktan** oluşmaktadır [1]. Ancak toplam maliyet bilgisi henüz paylaşılmamıştır [1]."
+    }
+  ]
+}
