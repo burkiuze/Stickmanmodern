@@ -11,5 +11,44 @@
     "turkish": true,
     "score": 6,
     "answer": "Kuzeyköy Belediyesi'nin yeni bisiklet yolu projesi toplam 14 kilometrelik bir yol içermektedir [1]. Projenin tamamlanması planlanan tarih 2027 yılı yazıdır [1]. İkinci kaynakta [2] bisiklet yolu projesine dair herhangi bir bilgi bulunmamaktadır; sadece 2026 bütçesine ayrılan 42 milyon TL'lik ulaşım kalemi ve bütçenin meclisten geçmesi belirtilmiştir [2].\n\nSonuç: Proje 14 kilometre uzunluğunda olup 2027 yazında tamamlanmayı hedeflemektedir.\n"
+  },
+  {
+    "id": "conflict_numbers",
+    "type": "conflict",
+    "seconds": 46.1,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Lumen-3 bataryasının şarj döngüsü ömrü konusunda kaynaklar arasında farklı veriler bulunmaktadır. Üretici teknik bültenine göre, Lumen-3 hücrelerinin 3.000 tam şarj döngüsünden sonra kapasitesinin yüzde 80'ini koruduğu belirtilmektedir [1]. Buna karşılık, bağımsız bir laboratuvar testine göre Lumen-3 hücreleri yüzde 80 kapasite eşiğine 2.100 döngüde ulaşmıştır [2]. Bu iki veri arasında bir tutarsızlık olduğu görülmektedir.\n\nSonuç: Üretici 3.000 döngü [1], bağımsız test ise 2.100 döngü [2] vermektedir.\n"
+  },
+  {
+    "id": "unanswerable",
+    "type": "unanswerable",
+    "seconds": 33.9,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Deniz Teknoloji A.Ş.'nin 2025 yılı net kârı kaynaklarda belirtilmemiştir [1]. Kaynak [1], şirketin 2025'te gelirini yüzde 18 artırdığını ifade etmektedir [1]. Kaynak [2], Türkiye'deki tersane sektörünün toplam ihracatını 9 milyar dolar olarak vermektedir [2]; bu genel sektör verisidir ve Deniz Teknoloji A.Ş.'nin net kârını göstermez.\n\nSonuç: Deniz Teknoloji A.Ş.'nin 2025 net kârı kaynaklarda mevcut değildir.\n"
+  },
+  {
+    "id": "outdated",
+    "type": "outdated",
+    "seconds": 29.4,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Atlas 4.2, 30 Haziran 2024 tarihinde kararlı sürüm olarak yayınlandı [1]. Atlas 5.0 ise 14 Eylül 2026 tarihinde kararlı sürüm olarak yayınlandı [2]. Kaynak [2]'de belirtilen \"bugün\" ifadesi, kaynak metni içindeki tarih (2026-09-14) ile örtüşmektedir.\n\nSonuç: Kaynaklara göre en güncel kararlı sürüm Atlas 5.0'dır.\n"
   }
 ]
