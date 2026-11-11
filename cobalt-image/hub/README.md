@@ -49,7 +49,7 @@ pip install -U diffusers transformers accelerate torch
 import torch
 from diffusers import Flux2KleinPipeline
 
-pipe = Flux2KleinPipeline.from_pretrained("burkiuzeai/cobalt-image", torch_dtype=torch.bfloat16)
+pipe = Flux2KleinPipeline.from_pretrained("uzeresearch/cobalt-image", torch_dtype=torch.bfloat16)
 pipe.enable_model_cpu_offload()   # or pipe.to("cuda") with enough VRAM
 
 image = pipe(
