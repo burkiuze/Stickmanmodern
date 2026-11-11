@@ -13,6 +13,8 @@ written but never run; **not started**.
 | HTTP API: generations, job status, models, health, API keys, rate limit, queue, usage | done — `api/server.py`, 14 tests |
 | Dataset preparation: provenance, license allow-list, corruption, size, exact and near duplicates | done — `training/prepare_dataset.py`, 1 test |
 | Evaluation harness with fixed seeds and CLIP score | done — `eval/run_eval.py` |
+| Hugging Face publication, verified by downloading the repo and generating from it | done — https://huggingface.co/burkiuzeai/cobalt-image (revision a768e9c) |
+| Baseline evaluation, 8 prompts at 512 px | done — `eval/results/baseline_512` |
 | LoRA fine-tuning launcher | untested — `training/train_lora.sh` needs a GPU |
 | Next.js frontend | not started |
 | Docker, PostgreSQL, Redis, object storage | not started |
