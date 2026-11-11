@@ -1,0 +1,6 @@
+__pycache__/
+.pytest_cache/
+*.safetensors
+*.gguf
+base/
+dataset/

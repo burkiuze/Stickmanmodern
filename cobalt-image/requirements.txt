@@ -1,0 +1,13 @@
+torch>=2.6
+diffusers>=0.36
+transformers>=4.57
+accelerate
+peft
+safetensors
+huggingface_hub
+pillow
+fastapi
+uvicorn[standard]
+pydantic>=2
+httpx
+pytest

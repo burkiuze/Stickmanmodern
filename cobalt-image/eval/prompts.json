@@ -1,0 +1,10 @@
+[
+  {"id": "photo_portrait", "category": "photorealism", "prompt": "Close-up portrait photograph of an elderly fisherman with a weathered face and grey beard, natural window light, 85mm lens, shallow depth of field"},
+  {"id": "hands", "category": "anatomy", "prompt": "A pianist's two hands resting on piano keys, top-down photograph, sharp focus, all ten fingers visible"},
+  {"id": "count_apples", "category": "counting", "prompt": "Exactly three red apples in a row on a plain white table, studio product photo"},
+  {"id": "spatial", "category": "spatial", "prompt": "A blue cube on top of a red sphere, to the left of a yellow pyramid, on a grey floor, simple 3D render"},
+  {"id": "text_sign", "category": "text", "prompt": "A wooden shop sign that reads \"COBALT\" in bold white capital letters, hanging above a street door"},
+  {"id": "cinematic", "category": "cinematic", "prompt": "A lone astronaut walking across a foggy salt flat at dawn, cinematic wide shot, anamorphic lens flare, teal and orange colour grade"},
+  {"id": "architecture", "category": "architecture", "prompt": "Architectural visualization of a minimalist concrete house with floor-to-ceiling glass, surrounded by pine forest, overcast light"},
+  {"id": "illustration", "category": "art", "prompt": "Flat vector illustration of a fox reading a book under a tree, limited palette of cobalt blue, orange and cream"}
+]
