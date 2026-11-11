@@ -1,0 +1,23 @@
+COBALT Image
+Copyright 2026 COBALT AI
+
+This repository redistributes, without modification, the model weights and
+configuration of FLUX.2 [klein] 4B:
+
+    FLUX.2 [klein] 4B
+    Copyright Black Forest Labs
+    https://huggingface.co/black-forest-labs/FLUX.2-klein-4B
+    Licensed under the Apache License, Version 2.0
+
+Files taken unchanged from that repository:
+    model_index.json, scheduler/, tokenizer/, text_encoder/, transformer/, vae/
+
+The text encoder in text_encoder/ is a Qwen3 model, distributed in the
+FLUX.2 [klein] 4B repository under the same Apache License, Version 2.0.
+
+"FLUX" and "Black Forest Labs" are trademarks of their owner. COBALT AI is
+not affiliated with, sponsored by, or endorsed by Black Forest Labs.
+
+The COBALT Image model card, pipeline code and tooling are original work of
+COBALT AI and are licensed under the Apache License, Version 2.0. A copy of
+the license is in the LICENSE file.
