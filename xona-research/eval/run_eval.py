@@ -80,9 +80,9 @@ def main():
         t = time.time()
         res = llm.create_chat_completion(
             messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": build_prompt(q)}],
+            # Qwen3.5's template leaves thinking off unless enable_thinking is set,
+            # so the whole token budget goes to the answer.
             max_tokens=a.max_tokens, temperature=0.2,
-            # Qwen3.5 chat template: disable the thinking block so the token budget goes to the answer.
-            chat_template_kwargs={"enable_thinking": False},
         )
         ans = res["choices"][0]["message"]["content"]
         s = score(q, ans)
