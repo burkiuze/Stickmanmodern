@@ -46,6 +46,7 @@ def main():
     ap.add_argument("--limit", type=int)
     ap.add_argument("--only", nargs="*", help="prompt ids")
     ap.add_argument("--out", type=Path, default=Path("eval/results/latest"))
+    ap.add_argument("--reuse", action="store_true", help="score images already in --out instead of regenerating")
     a = ap.parse_args()
 
     suite = json.loads((Path(__file__).parent / "prompts.json").read_text())
@@ -57,13 +58,23 @@ def main():
 
     eng = CobaltEngine(a.model)
     rows, pairs = [], []
+    # Timings are written after every image so a failure in scoring loses nothing.
+    tfile = a.out / "timings.json"
+    timings = json.loads(tfile.read_text()) if tfile.exists() else {}
     for p in suite:
-        res = eng.generate(p["prompt"], a.size, a.size, seed=a.seed)
         f = a.out / f"{p['id']}.png"
-        res.images[0].save(f)
-        pairs.append((res.images[0], p["prompt"]))
-        rows.append({**p, "file": f.name, "seconds": res.timings["total_s"]})
-        print(p["id"], res.timings, flush=True)
+        if a.reuse and f.exists() and p["id"] in timings:
+            from PIL import Image
+            img = Image.open(f).convert("RGB")
+        else:
+            res = eng.generate(p["prompt"], a.size, a.size, seed=a.seed)
+            img = res.images[0]
+            img.save(f)
+            timings[p["id"]] = res.timings["total_s"]
+            tfile.write_text(json.dumps(timings, indent=2))
+            print(p["id"], res.timings, flush=True)
+        pairs.append((img, p["prompt"]))
+        rows.append({**p, "file": f.name, "seconds": timings[p["id"]]})
     for r, s in zip(rows, clip_scores(pairs)):
         r["clip_score"] = s
 

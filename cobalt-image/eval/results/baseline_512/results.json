@@ -1,0 +1,89 @@
+{
+  "model": "cobalt-image-v0.1",
+  "base_repo": "black-forest-labs/FLUX.2-klein-4B",
+  "weights_origin": "third-party",
+  "size": 512,
+  "seed": 1234,
+  "steps": 4,
+  "guidance": 1.0,
+  "mode": "staged",
+  "device": "cpu",
+  "hardware": {
+    "cuda": false,
+    "cpu_threads": 4,
+    "ram_gb": 15.7,
+    "vram_gb": null,
+    "gpu": null
+  },
+  "platform": "Linux-6.18.44-fc-v378-x86_64-with-glibc2.39",
+  "torch": "2.15.0+cu132",
+  "metric": "CLIP score (openai/clip-vit-base-patch32)",
+  "n_prompts": 8,
+  "mean_clip_score": 37.63,
+  "results": [
+    {
+      "id": "photo_portrait",
+      "category": "photorealism",
+      "prompt": "Close-up portrait photograph of an elderly fisherman with a weathered face and grey beard, natural window light, 85mm lens, shallow depth of field",
+      "file": "photo_portrait.png",
+      "seconds": 47.86,
+      "clip_score": 37.72
+    },
+    {
+      "id": "hands",
+      "category": "anatomy",
+      "prompt": "A pianist's two hands resting on piano keys, top-down photograph, sharp focus, all ten fingers visible",
+      "file": "hands.png",
+      "seconds": 52.68,
+      "clip_score": 34.34
+    },
+    {
+      "id": "count_apples",
+      "category": "counting",
+      "prompt": "Exactly three red apples in a row on a plain white table, studio product photo",
+      "file": "count_apples.png",
+      "seconds": 66.85,
+      "clip_score": 33.28
+    },
+    {
+      "id": "spatial",
+      "category": "spatial",
+      "prompt": "A blue cube on top of a red sphere, to the left of a yellow pyramid, on a grey floor, simple 3D render",
+      "file": "spatial.png",
+      "seconds": 56.83,
+      "clip_score": 39.0
+    },
+    {
+      "id": "text_sign",
+      "category": "text",
+      "prompt": "A wooden shop sign that reads \"COBALT\" in bold white capital letters, hanging above a street door",
+      "file": "text_sign.png",
+      "seconds": 78.77,
+      "clip_score": 38.37
+    },
+    {
+      "id": "cinematic",
+      "category": "cinematic",
+      "prompt": "A lone astronaut walking across a foggy salt flat at dawn, cinematic wide shot, anamorphic lens flare, teal and orange colour grade",
+      "file": "cinematic.png",
+      "seconds": 79.58,
+      "clip_score": 36.43
+    },
+    {
+      "id": "architecture",
+      "category": "architecture",
+      "prompt": "Architectural visualization of a minimalist concrete house with floor-to-ceiling glass, surrounded by pine forest, overcast light",
+      "file": "architecture.png",
+      "seconds": 104.12,
+      "clip_score": 38.54
+    },
+    {
+      "id": "illustration",
+      "category": "art",
+      "prompt": "Flat vector illustration of a fox reading a book under a tree, limited palette of cobalt blue, orange and cream",
+      "file": "illustration.png",
+      "seconds": 88.22,
+      "clip_score": 43.39
+    }
+  ]
+}

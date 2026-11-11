@@ -49,7 +49,7 @@ pip install -U diffusers transformers accelerate torch
 import torch
 from diffusers import Flux2KleinPipeline
 
-pipe = Flux2KleinPipeline.from_pretrained("__REPO__", torch_dtype=torch.bfloat16)
+pipe = Flux2KleinPipeline.from_pretrained("burkiuzeai/cobalt-image", torch_dtype=torch.bfloat16)
 pipe.enable_model_cpu_offload()   # or pipe.to("cuda") with enough VRAM
 
 image = pipe(
@@ -72,7 +72,32 @@ Width and height must be multiples of 16.
 
 ## Evaluation
 
-__EVAL__
+Run by COBALT AI on 2026-11-11 with `eval/run_eval.py` from the project repository.
+
+- 8 prompts, one image each, 512×512, 4 steps, guidance 1.0, seed 1234
+- CPU only (4 threads, 15 GB RAM), staged mode
+- Metric: CLIP score = 100 × cosine similarity, `openai/clip-vit-base-patch32`
+
+| Prompt id | Category | CLIP score | Observed by inspection |
+|---|---|---|---|
+| photo_portrait | photorealism | 37.72 | convincing portrait |
+| hands | anatomy | 34.34 | hands plausible; piano key layout is wrong |
+| count_apples | counting | 33.28 | three apples, correct |
+| spatial | spatial | 39.00 | cube is on the sphere, but the pyramid is on the wrong side |
+| text_sign | text | 38.37 | "COBALT" spelled correctly |
+| cinematic | cinematic | 36.43 | matches the prompt |
+| architecture | architecture | 38.54 | matches the prompt |
+| illustration | art | 43.39 | matches the prompt and palette |
+
+Mean CLIP score: **37.63**.
+
+![Evaluation images](samples/eval_grid_512.jpg)
+
+What this does and does not show: CLIP score is a coarse proxy for prompt
+agreement. Eight images at 512 px with one seed is a smoke test, not a
+benchmark. GenEval, T2I-CompBench, human preference tests and comparisons
+against other models have **not** been run, so no claim is made about how
+this model ranks against any other.
 
 ## Intended use
 
