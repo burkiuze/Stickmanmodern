@@ -19,6 +19,7 @@ def main() -> None:
     ap.add_argument("--seed", type=int)
     ap.add_argument("-n", "--num-images", type=int, default=1)
     ap.add_argument("--mode", default="auto", choices=["auto", "full", "staged"])
+    ap.add_argument("--enhance", action="store_true", help="expand the prompt with the model's own text encoder")
     ap.add_argument("--out", default="cobalt.png")
     a = ap.parse_args()
 
@@ -27,6 +28,7 @@ def main() -> None:
     res = eng.generate(
         a.prompt, w, h, a.steps, a.guidance, a.seed, a.num_images,
         on_step=lambda i, n: print(f"step {i}/{n}", flush=True),
+        enhance=a.enhance,
     )
     stem, _, ext = a.out.rpartition(".")
     for i, img in enumerate(res.images):

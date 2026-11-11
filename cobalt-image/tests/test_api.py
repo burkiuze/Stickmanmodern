@@ -17,13 +17,14 @@ class StubEngine:
     def __init__(self, fail=False):
         self.fail = fail
 
-    def generate(self, prompt, width, height, steps, guidance, seed, n, on_step=None):
+    def generate(self, prompt, width, height, steps, guidance, seed, n, on_step=None, enhance=False):
         if self.fail:
             raise RuntimeError("boom")
         if on_step:
             on_step(1, 1)
         return GenerationResult(
             images=[Image.new("RGB", (width, height), (0, 71, 171)) for _ in range(n)],
+            prompt=prompt, prompt_used=prompt + (" [enhanced]" if enhance else ""),
             seed=seed or 0, width=width, height=height, steps=steps or 1, guidance=guidance or 1.0,
             model="cobalt-image-v0.1", mode="stub", device="cpu", timings={})
 
@@ -98,3 +99,11 @@ def test_engine_failure_is_reported(monkeypatch):
     r = c.post("/v1/images/generations", json={"prompt": "x", "wait": True})
     assert r.status_code == 500 and r.json()["status"] == "failed" and "boom" in r.json()["error"]
     assert r.json()["data"] == []
+
+
+def test_enhance_flag_reaches_engine_and_is_reported(monkeypatch):
+    c = client(monkeypatch)
+    off = c.post("/v1/images/generations", json={"prompt": "a cat", "size": 256, "wait": True}).json()
+    on = c.post("/v1/images/generations", json={"prompt": "a cat", "size": 256, "wait": True, "enhance": True}).json()
+    assert off["meta"]["prompt_used"] == "a cat"
+    assert on["meta"]["prompt"] == "a cat" and on["meta"]["prompt_used"] == "a cat [enhanced]"

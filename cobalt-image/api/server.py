@@ -42,6 +42,7 @@ class GenerationRequest(BaseModel):
     guidance: float | None = Field(default=None, ge=0, le=20)
     seed: int | None = Field(default=None, ge=0, le=2**31 - 1)
     n: int = Field(default=1, ge=1, le=MAX_IMAGES)
+    enhance: bool = Field(default=False, description="rewrite the prompt with more visual detail before generating")
     wait: bool = False
 
     @model_validator(mode="after")
@@ -115,7 +116,8 @@ def create_app(engine_factory=None) -> FastAPI:
                     job.progress = {"step": i, "steps": n}
 
                 res = engines[r.model].generate(
-                    r.prompt, r.width, r.height, r.steps, r.guidance, r.seed, r.n, on_step=on_step)
+                    r.prompt, r.width, r.height, r.steps, r.guidance, r.seed, r.n, on_step=on_step,
+                    enhance=r.enhance)
                 for img in res.images:
                     buf = io.BytesIO()
                     img.save(buf, "PNG")

@@ -22,6 +22,8 @@ from .config import DEFAULT_MODEL, MODELS, ModelSpec, model_path
 @dataclass
 class GenerationResult:
     images: list            # list[PIL.Image.Image]
+    prompt: str             # what the user asked for
+    prompt_used: str        # what was encoded (differs only when enhance=True)
     seed: int
     width: int
     height: int
@@ -112,6 +114,7 @@ class CobaltEngine:
         seed: int | None = None,
         num_images: int = 1,
         on_step: Callable[[int, int], None] | None = None,
+        enhance: bool = False,
     ) -> GenerationResult:
         if not prompt or not prompt.strip():
             raise ValueError("prompt is empty")
@@ -135,15 +138,26 @@ class CobaltEngine:
         )
 
         t0 = time.time()
+        used = prompt
         if self.mode == "full":
             self.load()
-            images = self._pipe(prompt=prompt, num_images_per_prompt=num_images, **common).images
-            timings["generate_s"] = round(time.time() - t0, 2)
+            if enhance:
+                from .enhance import enhance_prompt
+                used = enhance_prompt(self._pipe.text_encoder, self._pipe.tokenizer, prompt)
+                timings["enhance_s"] = round(time.time() - t0, 2)
+            t = time.time()
+            images = self._pipe(prompt=used, num_images_per_prompt=num_images, **common).images
+            timings["generate_s"] = round(time.time() - t, 2)
         else:
             enc = self._load(transformer=None, vae=None)
             timings["load_encoder_s"] = round(time.time() - t0, 2)
+            if enhance:
+                from .enhance import enhance_prompt
+                t = time.time()
+                used = enhance_prompt(enc.text_encoder, enc.tokenizer, prompt)
+                timings["enhance_s"] = round(time.time() - t, 2)
             t = time.time()
-            embeds, _ = enc.encode_prompt(prompt=prompt, device=self.device, num_images_per_prompt=num_images)
+            embeds, _ = enc.encode_prompt(prompt=used, device=self.device, num_images_per_prompt=num_images)
             embeds = embeds.to("cpu")
             timings["encode_s"] = round(time.time() - t, 2)
             del enc
@@ -162,7 +176,7 @@ class CobaltEngine:
         timings["total_s"] = round(time.time() - t0, 2)
 
         return GenerationResult(
-            images=images, seed=seed, width=width, height=height, steps=steps,
+            images=images, prompt=prompt, prompt_used=used, seed=seed, width=width, height=height, steps=steps,
             guidance=guidance, model=self.spec.id, mode=self.mode, device=self.device,
             timings=timings,
         )
