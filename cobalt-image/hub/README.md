@@ -63,6 +63,35 @@ image.save("cobalt.png")
 
 Width and height must be multiples of 16.
 
+## What COBALT adds
+
+The weights are unchanged; these features live in the `cobalt/` package
+included in this repository.
+
+**Prompt enhancement (opt-in).** The pipeline's text encoder is a Qwen3
+language model, so COBALT also uses it to rewrite a short prompt into a
+detailed one before encoding: no extra model and no network call. The result
+always reports both the original and the rewritten prompt.
+
+```python
+from cobalt.engine import CobaltEngine
+
+result = CobaltEngine().generate("a cat", 512, 512, seed=42, enhance=True)
+print(result.prompt_used)       # the rewritten prompt
+result.images[0].save("cat.png")
+```
+
+![Raw prompt (top) vs enhanced prompt (bottom)](samples/enhance_before_after_512.jpg)
+
+Top row: raw prompts. Bottom row: the same prompts and seed with enhancement.
+Judged by eye on four pairs, the enhanced images carry more specific lighting
+and detail; this has not been measured with a metric or a blind test. It adds
+about 33 s per image on a 4-thread CPU.
+
+**Low-memory staged mode.** `CobaltEngine` never holds the text encoder and
+the transformer in memory together, so the model runs without a GPU in about
+9 GB of RAM.
+
 ## Hardware
 
 | Setup | Status |
@@ -143,7 +172,7 @@ and safety mitigations behind the base weights, see the
 | `transformer/`, `vae/`, `text_encoder/`, `tokenizer/`, `scheduler/`, `model_index.json` | FLUX.2 [klein] 4B, unchanged |
 | `LICENSE` | Apache License 2.0 |
 | `NOTICE` | attribution and trademark notice |
-| `README.md`, `samples/` | COBALT AI |
+| `README.md`, `samples/`, `cobalt/` | COBALT AI |
 
 ## Roadmap
 
