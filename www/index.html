@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#05060d">
+<title>Neon Duel: Stick Legends</title>
+<style>
+:root{--bg:#05060d;--glass:rgba(10,14,32,.72);--line:rgba(255,255,255,.12);--txt:#f1f5ff;--mut:rgba(241,245,255,.6);--acc:#22d3ee;--gold:#ffd23f;--u:min(1vh,0.56vw)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;font-family:system-ui,"Segoe UI",Roboto,sans-serif;color:var(--txt);touch-action:none}
+canvas#c{position:fixed;inset:0;display:block}
+#ui{position:fixed;inset:0;pointer-events:none}
+.screen{position:absolute;inset:0;display:none;pointer-events:auto}
+.screen.on{display:block}
+button{font:inherit;color:inherit;border:0;cursor:pointer;background:none}
+.topbar{position:absolute;left:0;right:0;top:0;height:calc(var(--u)*15);display:flex;align-items:center;gap:calc(var(--u)*2);padding:0 calc(var(--u)*4);background:linear-gradient(180deg,rgba(5,6,13,.85),rgba(5,6,13,0))}
+.profile{display:flex;align-items:center;gap:calc(var(--u)*1.5);background:var(--glass);border:1px solid var(--line);border-radius:calc(var(--u)*3);padding:calc(var(--u)*1.2) calc(var(--u)*2.5) calc(var(--u)*1.2) calc(var(--u)*1.2);backdrop-filter:blur(8px)}
+.lvl{width:calc(var(--u)*7);height:calc(var(--u)*7);border-radius:50%;background:linear-gradient(135deg,#3b82f6,#a855f7);display:grid;place-items:center;font-weight:900;font-size:calc(var(--u)*3)}
+.pinfo b{display:block;font-size:calc(var(--u)*2.8)}
+.xp{width:calc(var(--u)*20);height:calc(var(--u)*1.3);background:rgba(255,255,255,.12);border-radius:9px;overflow:hidden;margin-top:calc(var(--u)*.6)}
+.xp i{display:block;height:100%;background:linear-gradient(90deg,#22d3ee,#a78bfa)}
+.logo{flex:1;text-align:center;line-height:.9}
+.logo span{font-weight:900;font-style:italic;font-size:calc(var(--u)*7.5);letter-spacing:.02em;background:linear-gradient(180deg,#fff 20%,#7dd3fc 60%,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 calc(var(--u)*2) rgba(34,211,238,.45))}
+.logo small{display:block;font-weight:900;letter-spacing:.5em;font-size:calc(var(--u)*2.4);color:#ff5fa2;margin-top:calc(var(--u)*.8)}
+.coins{display:flex;align-items:center;gap:calc(var(--u)*1);background:var(--glass);border:1px solid var(--line);border-radius:99px;padding:calc(var(--u)*1) calc(var(--u)*1.2) calc(var(--u)*1) calc(var(--u)*3);font-weight:900;font-size:calc(var(--u)*3.6)}
+.coin{width:calc(var(--u)*5);height:calc(var(--u)*5);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6c2,#ffd23f 40%,#d4900c);box-shadow:0 0 calc(var(--u)*2) rgba(255,210,63,.6);display:inline-block}
+.coin.s{width:1em;height:1em;vertical-align:-.15em}
+.icon{width:calc(var(--u)*8);height:calc(var(--u)*8);border-radius:calc(var(--u)*2.4);background:var(--glass);border:1px solid var(--line);font-size:calc(var(--u)*4)}
+.col{position:absolute;bottom:calc(var(--u)*5);display:flex;flex-direction:column;gap:calc(var(--u)*2)}
+.col.left{left:calc(var(--u)*4)}.col.right{right:calc(var(--u)*4)}
+.tile{position:relative;display:flex;align-items:center;gap:calc(var(--u)*2);min-width:calc(var(--u)*36);padding:calc(var(--u)*2) calc(var(--u)*3);border-radius:calc(var(--u)*3);background:var(--glass);border:1px solid var(--line);font-weight:900;font-size:calc(var(--u)*3.2);text-align:left;box-shadow:0 calc(var(--u)*.8) 0 rgba(0,0,0,.45);transition:transform .08s;backdrop-filter:blur(8px)}
+.tile:active{transform:translateY(calc(var(--u)*.6)) scale(.98)}
+.tile em{font-style:normal;font-size:calc(var(--u)*5)}
+.tile small{display:block;font-weight:600;font-size:calc(var(--u)*2.1);opacity:.75;margin-top:calc(var(--u)*.4)}
+.tile.big{min-width:calc(var(--u)*44);padding:calc(var(--u)*2.2) calc(var(--u)*3.5);font-style:italic;font-size:calc(var(--u)*3.8);border:0}
+.blue{background:linear-gradient(135deg,#2563eb,#22d3ee)}.green{background:linear-gradient(135deg,#16a34a,#84cc16)}.purple{background:linear-gradient(135deg,#7c3aed,#ec4899)}.red{background:linear-gradient(135deg,#b91c1c,#f97316)}.gold{background:linear-gradient(135deg,#d97706,#facc15);color:#1a1200}
+.badge{position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:99px;font-size:calc(var(--u)*2);padding:2px 8px}
+.panel{position:absolute;background:var(--glass);border:1px solid var(--line);border-radius:calc(var(--u)*4);backdrop-filter:blur(14px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.center{left:50%;top:50%;transform:translate(-50%,-50%)}
+h2{margin:0 0 calc(var(--u)*2);font-style:italic;font-weight:900;font-size:calc(var(--u)*5.5)}
+h3{margin:calc(var(--u)*2) 0 calc(var(--u)*1.2);font-size:calc(var(--u)*2.4);letter-spacing:.15em;color:var(--mut)}
+.seg{display:flex;gap:calc(var(--u)*1.2);flex-wrap:wrap}
+.seg button{padding:calc(var(--u)*1.4) calc(var(--u)*3);border-radius:calc(var(--u)*2);background:rgba(255,255,255,.07);border:1px solid var(--line);font-weight:800;font-size:calc(var(--u)*2.6)}
+.seg button.on{background:linear-gradient(135deg,#2563eb,#22d3ee);border-color:transparent;box-shadow:0 0 calc(var(--u)*2) rgba(34,211,238,.4)}
+.maps{display:grid;grid-template-columns:repeat(5,1fr);gap:calc(var(--u)*1.5)}
+.mapc{border-radius:calc(var(--u)*2);overflow:hidden;border:2px solid transparent;background:#000;position:relative}
+.mapc canvas{display:block;width:100%;aspect-ratio:16/9}
+.mapc b{position:absolute;left:0;right:0;bottom:0;padding:calc(var(--u)*.8);font-size:calc(var(--u)*2.1);background:linear-gradient(0deg,rgba(0,0,0,.85),transparent)}
+.mapc.on{border-color:var(--acc);box-shadow:0 0 calc(var(--u)*2.5) rgba(34,211,238,.5)}
+.row{display:flex;gap:calc(var(--u)*2);justify-content:flex-end;margin-top:calc(var(--u)*3)}
+.btn{padding:calc(var(--u)*1.8) calc(var(--u)*5);border-radius:calc(var(--u)*2.4);font-weight:900;font-style:italic;font-size:calc(var(--u)*3.2);box-shadow:0 calc(var(--u)*.7) 0 rgba(0,0,0,.4)}
+.btn:active{transform:translateY(3px)}
+.ghost{background:rgba(255,255,255,.08);border:1px solid var(--line)}
+/* customize */
+#cpanel{left:calc(var(--u)*3);top:calc(var(--u)*3);bottom:calc(var(--u)*3);width:58%;display:flex;flex-direction:column;padding:calc(var(--u)*2.5)}
+.chead{display:flex;align-items:center;gap:calc(var(--u)*2)}
+.chead .grow{flex:1}
+.tabs{display:flex;gap:calc(var(--u)*1);margin:calc(var(--u)*2) 0;overflow-x:auto;scrollbar-width:none}
+.tabs button{flex:none;padding:calc(var(--u)*1.3) calc(var(--u)*2.6);border-radius:99px;background:rgba(255,255,255,.07);font-weight:800;font-size:calc(var(--u)*2.5)}
+.tabs button.on{background:#fff;color:#0a0d1a}
+.grid{flex:1;min-height:0;overflow-y:auto;display:grid;grid-auto-rows:max-content;grid-template-columns:repeat(auto-fill,minmax(calc(var(--u)*21),1fr));gap:calc(var(--u)*1.6);align-content:start;padding:2px;touch-action:pan-y;-webkit-overflow-scrolling:touch}
+.card{position:relative;display:block;border-radius:calc(var(--u)*2.4);background:linear-gradient(180deg,#5b8cff22,#5b8cff10);border:2px solid rgba(255,255,255,.1);padding:calc(var(--u)*1);text-align:left;overflow:hidden}
+.card canvas{display:block;width:100%;height:calc(var(--u)*14);border-radius:calc(var(--u)*1.5);background:radial-gradient(circle at 50% 40%,#2c4a9a,#121a3a)}
+.card b{display:block;font-size:calc(var(--u)*2.2);margin-top:calc(var(--u)*.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .tag{position:absolute;top:calc(var(--u)*1.6);left:calc(var(--u)*1.6);font-size:calc(var(--u)*1.6);font-weight:900;padding:1px 6px;border-radius:6px;background:#ec4899}
+.card .tag.m{background:#0ea5e9}
+.card .pr{display:flex;align-items:center;gap:4px;font-weight:900;font-size:calc(var(--u)*2.2);color:var(--gold)}
+.card.locked canvas{filter:saturate(.3) brightness(.6)}
+.card.sel{border-color:var(--acc);box-shadow:0 0 calc(var(--u)*2) rgba(34,211,238,.45)}
+.card .ok{position:absolute;right:calc(var(--u)*1.4);bottom:calc(var(--u)*1.2);color:#4ade80;font-weight:900;font-size:calc(var(--u)*2.8)}
+.sw{aspect-ratio:1;border-radius:50%;border:3px solid rgba(255,255,255,.15)}
+.sw.sel{border-color:#fff;box-shadow:0 0 0 3px var(--acc)}
+.swg{display:grid;grid-template-columns:repeat(10,1fr);gap:calc(var(--u)*1.2)}
+#cinfo{right:calc(var(--u)*3);bottom:calc(var(--u)*3);width:36%;padding:calc(var(--u)*2) calc(var(--u)*3)}
+#cinfo b{font-size:calc(var(--u)*3.2);font-style:italic}#cinfo p{margin:calc(var(--u)*.8) 0 0;color:var(--mut);font-size:calc(var(--u)*2.3)}
+input.name{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:calc(var(--u)*1.8);color:#fff;font:inherit;font-weight:800;padding:calc(var(--u)*1.2) calc(var(--u)*2);width:calc(var(--u)*26);font-size:calc(var(--u)*2.6);user-select:text;-webkit-user-select:text}
+#toast{position:fixed;left:50%;top:18%;transform:translateX(-50%);background:rgba(10,14,32,.92);border:1px solid var(--line);padding:calc(var(--u)*1.6) calc(var(--u)*4);border-radius:99px;font-weight:800;font-size:calc(var(--u)*2.8);opacity:0;transition:opacity .25s;pointer-events:none;z-index:9}
+#toast.on{opacity:1}
+.big-title{font-size:calc(var(--u)*10);font-weight:900;font-style:italic;margin:0;background:linear-gradient(180deg,#fff,#ffd23f);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center}
+.dim{background:rgba(3,4,10,.6)}
+.howto{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--u)*3);font-size:calc(var(--u)*2.5);color:var(--mut)}
+.howto b{color:#fff}
+kbd{background:#fff;color:#000;border-radius:5px;padding:0 6px;font-weight:800;font-size:.9em}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="ui">
+  <section id="s-menu" class="screen">
+    <div class="topbar">
+      <div class="profile"><div class="lvl" id="lv">1</div><div class="pinfo"><b id="pname">Oyuncu 1</b><div class="xp"><i id="xpbar"></i></div></div></div>
+      <div class="logo"><span>NEON DUEL</span><small>STICK LEGENDS</small></div>
+      <div class="coins"><span id="coins">0</span><i class="coin"></i></div>
+      <button class="icon" data-act="settings">⚙️</button>
+    </div>
+    <div class="col left">
+      <button class="tile gold" data-act="custom"><em>🥷</em><div>KARAKTER & MAĞAZA<small>Silah · Aksesuar · Renk</small></div></button>
+      <button class="tile" data-act="gift"><em>🎁</em><div>GÜNLÜK HEDİYE<small id="giftsub">+200 altın</small></div></button>
+      <button class="tile" data-act="howto"><em>🎮</em><div>KONTROLLER</div></button>
+    </div>
+    <div class="col right">
+      <button class="tile big blue" data-mode="cpu">⚔️ 1 OYUNCU<small>Yapay zekaya karşı</small></button>
+      <button class="tile big green" data-mode="pvp">🤝 2 OYUNCU<small>Aynı cihazda düello</small></button>
+      <button class="tile big purple" data-mode="survival">💀 HAYATTA KAL<small>Sonsuz dalgalar · 1-2 kişi</small></button>
+      <button class="tile big red" data-mode="boss">👹 BOSS SAVAŞI<small>Dev Lanet Lordu · 1-2 kişi</small></button>
+    </div>
+  </section>
+
+  <section id="s-setup" class="screen dim">
+    <div class="panel center" style="width:min(92vw,980px);padding:calc(var(--u)*4)">
+      <h2 id="setup-title">1 OYUNCU</h2>
+      <h3>HARİTA</h3><div class="maps" id="maps"></div>
+      <div style="display:flex;gap:calc(var(--u)*5);flex-wrap:wrap">
+        <div id="opt-diff"><h3>ZORLUK</h3><div class="seg" data-k="diff"><button data-v="0">Kolay</button><button data-v="1">Orta</button><button data-v="2">Zor</button></div></div>
+        <div id="opt-target"><h3>KAZANMAK İÇİN TUR</h3><div class="seg" data-k="target"><button data-v="2">2</button><button data-v="3">3</button><button data-v="5">5</button></div></div>
+        <div id="opt-players"><h3>OYUNCU</h3><div class="seg" data-k="players"><button data-v="1">1 Kişi</button><button data-v="2">2 Kişi (co-op)</button></div></div>
+      </div>
+      <div class="row"><button class="btn ghost" data-act="custom">🥷 Karakterler</button><button class="btn ghost" data-act="menu">Geri</button><button class="btn blue" data-act="start">BAŞLA ▶</button></div>
+    </div>
+  </section>
+
+  <section id="s-custom" class="screen">
+    <div class="panel" id="cpanel">
+      <div class="chead">
+        <button class="icon" data-act="menu">✕</button>
+        <div class="seg" id="ptoggle"><button data-p="0">Oyuncu 1</button><button data-p="1">Oyuncu 2</button></div>
+        <input class="name" id="pnameIn" maxlength="14">
+        <div class="grow"></div>
+        <div class="coins"><span class="coinsv">0</span><i class="coin"></i></div>
+      </div>
+      <div class="tabs" id="tabs"><button data-t="chars">Karakterler</button><button data-t="weapons">Silahlar</button><button data-t="head">Kafa</button><button data-t="back">Sırt</button><button data-t="color">Renk</button></div>
+      <div class="grid" id="grid"></div>
+    </div>
+    <div class="panel" id="cinfo"><b id="ci-t"></b><p id="ci-d"></p></div>
+  </section>
+
+  <section id="s-pause" class="screen dim">
+    <div class="panel center" style="padding:calc(var(--u)*5);text-align:center;min-width:calc(var(--u)*60)">
+      <p class="big-title">DURAKLATILDI</p>
+      <div class="row" style="justify-content:center;flex-wrap:wrap"><button class="btn ghost" data-act="menu">Menü</button><button class="btn ghost" data-act="restart">Yeniden</button><button class="btn blue" data-act="resume">Devam ▶</button></div>
+    </div>
+  </section>
+
+  <section id="s-results" class="screen dim">
+    <div class="panel center" style="padding:calc(var(--u)*5);text-align:center;min-width:calc(var(--u)*70)">
+      <p class="big-title" id="r-title">ZAFER</p>
+      <p id="r-sub" style="font-size:calc(var(--u)*3);color:var(--mut);margin:calc(var(--u)*1) 0"></p>
+      <p style="font-size:calc(var(--u)*5);font-weight:900;margin:calc(var(--u)*2) 0">+<span id="r-coins">0</span> <i class="coin s"></i></p>
+      <div class="row" style="justify-content:center"><button class="btn ghost" data-act="menu">Menü</button><button class="btn ghost" data-act="custom">Karakter</button><button class="btn blue" data-act="restart">Tekrar ▶</button></div>
+    </div>
+  </section>
+
+  <section id="s-modal" class="screen dim">
+    <div class="panel center" style="padding:calc(var(--u)*5);width:min(90vw,860px)">
+      <div id="m-body"></div>
+      <div class="row"><button class="btn blue" data-act="closemodal">Tamam</button></div>
+    </div>
+  </section>
+</div>
+<div id="toast"></div>
+<script src="core.js"></script>
+<script src="data.js"></script>
+<script src="game.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>

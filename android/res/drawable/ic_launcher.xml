@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item><shape android:shape="oval"><gradient android:startColor="#7C3AED" android:endColor="#22D3EE" android:angle="45"/></shape></item>
+  <item android:drawable="@drawable/ic_fg"/>
+</layer-list>
