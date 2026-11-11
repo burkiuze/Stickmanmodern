@@ -39,5 +39,9 @@ def enhance_prompt(text_encoder, tokenizer, prompt: str, max_new_tokens: int = 1
         repetition_penalty=1.05, pad_token_id=tokenizer.eos_token_id)
     new = tokenizer.decode(out[0, inputs["input_ids"].shape[1]:], skip_special_tokens=True).strip()
     new = " ".join(new.split())
+    # The model sometimes wraps its whole answer in quotes. Quoted text means
+    # "render these words in the image", so strip a pair that encloses everything.
+    if len(new) > 1 and new[0] == new[-1] == '"' and '"' not in new[1:-1]:
+        new = new[1:-1].strip()
     # Fall back to the original if the model returned nothing usable.
     return new if len(new.split()) >= 5 else prompt
