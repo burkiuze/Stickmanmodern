@@ -41,8 +41,13 @@ def main():
     tok, model = load(a.base, a.adapter)
     qs = [json.loads(l) for l in (Path(__file__).parent / "questions.jsonl").read_text().splitlines() if l.strip()]
     a.out.mkdir(parents=True, exist_ok=True)
-    rows = []
+    # Resume: the machine can be restarted mid-run, so keep finished answers.
+    part = a.out / "partial.json"
+    rows = json.loads(part.read_text()) if part.exists() else []
+    done = {r["id"] for r in rows}
     for q in qs:
+        if q["id"] in done:
+            continue
         msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": build_prompt(q)}]
         text = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=False)
         ids = tok(text, return_tensors="pt")
