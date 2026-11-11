@@ -11,5 +11,57 @@
     "turkish": true,
     "score": 6,
     "answer": "Kuzeyköy Belediyesi'nin yeni bisiklet yolu projesi **14 kilometre** uzunluğundadır ve çalışmaların **2027 yazında** tamamlanması planlanmaktadır.\n\nBu bilgiler [1] numaralı kaynağa dayanmaktadır. [2] numaralı kaynak sadece 2026 bütçesindeki ulaşım kalemine ayrılan 42 milyon TL tutarını içermektedir ve proje uzunluğu veya bitiş tarihi hakkında bilgi vermemektedir.\n"
+  },
+  {
+    "id": "conflict_numbers",
+    "type": "conflict",
+    "seconds": 156.6,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Lumen-3 bataryasının şarj döngüsü ömrü için kaynaklarda farklı veriler bulunmaktadır:\n\n*   **Üretici Beyanı:** Lumen-3 teknik bültenine göre, üretici 3.000 tam şarj döngüsünden sonra bataryanın kapasitesinin yüzde 80'ini koruduğunu belirtmektedir [1].\n*   **Bağımsız Test Sonuçları:** Bağımsız bir laboratuvar testine göre ise, test koşullarında (25°C) Lumen-3 hücreleri yüzde 80 kapasite eşiğine daha erken, yani 2.100 döngüde ulaştığı görülmüştür [2].\n\nBu iki veri arasında bir çelişki bulunmaktadır; üretici daha yüksek bir ömür (3.000 döngü) öngörürken, bağımsız test daha düşük bir değer (2.100 döngü) göstermiştir.\n"
+  },
+  {
+    "id": "unanswerable",
+    "type": "unanswerable",
+    "seconds": 42.8,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Verilen kaynaklarda Deniz Teknoloji A.Ş.'nin 2025 yılı **net kârı** hakkında spesifik bir rakam veya açıklama bulunmamaktadır.\n\nKaynaklar şunları belirtmektedir:\n*   Şirketin 2025 yılında gelirinin yüzde 18 arttığını bildirdiği [1].\n*   Türkiye tersane sektörünün 2025 yılında toplam 9 milyar dolar ihracat yaptığını belirttiği [2].\n\nAncak, gelir artışı ve sektör ihracatı verileri, şirketin net kârını doğrudan göstermez. Bu nedenle sorunuzun cevabı kaynaklarda yer almamaktadır.\n"
+  },
+  {
+    "id": "outdated",
+    "type": "outdated",
+    "seconds": 38.2,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Atlas açık kaynak veritabanının güncel kararlı sürümü **Atlas 5.0**'tür.\n\nBu sürüm, kaynaklara göre 14 Eylül 2026 tarihinde kararlı sürüm olarak yayınlanmıştır [2]. Ayrıca, 4.x serisi için güvenlik desteğinin 2027 sonunda biteceği belirtilmiştir [2].\n\n*Not: Kaynak [1] 30 Haziran 2024 tarihli Atlas 4.2 sürümünü de bahsetmektedir, ancak Atlas 5.0'un yayın tarihi (2026) bu sürümden sonradır ve kararlı olarak tanımlanmıştır.*\n"
+  },
+  {
+    "id": "fact_check",
+    "type": "fact_check",
+    "seconds": 22.0,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Verilen iddia, kaynaklarda belirtilen verilere göre **doğrulanamaz**.\n\nKaynak [1] göre, Mavi Göl Milli Parkı 2025 yılında **1,2 milyon** ziyaretçi ağırlamıştır. İddiada belirtilen \"2 milyon kişi\" sayısı, kaynaklardaki resmi rakamdan oldukça fazladır.\n\nKaynak: [1]\n"
   }
 ]

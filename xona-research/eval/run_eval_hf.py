@@ -36,6 +36,7 @@ def main():
     ap.add_argument("--adapter")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--max-new-tokens", type=int, default=600)
+    ap.add_argument("--only", nargs="*", help="question ids to run first (then the rest)")
     a = ap.parse_args()
 
     tok, model = load(a.base, a.adapter)
@@ -45,6 +46,8 @@ def main():
     part = a.out / "partial.json"
     rows = json.loads(part.read_text()) if part.exists() else []
     done = {r["id"] for r in rows}
+    if a.only:
+        qs = [q for q in qs if q["id"] in a.only] + [q for q in qs if q["id"] not in a.only]
     for q in qs:
         if q["id"] in done:
             continue
