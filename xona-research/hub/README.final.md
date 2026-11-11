@@ -63,7 +63,13 @@ read by hand on the two trap questions:
 So the measured difference is in how the two handle an embedded instruction: the
 adapter treats it as data and says so. On look-alike names the base was already right
 at full precision (a 4-bit quantized copy of the base slipped there in an earlier run),
-so no gain is claimed for that. The full 16-question comparison is added below once finished.
+so no gain is claimed for that.
+
+**All 16 questions:** adapter 94 / 96, unmodified Qwen3.5-4B 94 / 96. The automatic
+score is a tie and cannot separate them; each lost its points on the two trap
+questions, mostly to scorer false alarms (an answer that mentions the planted or
+look-alike text while rejecting it still trips the "forbidden value" check). The
+difference between the two is the qualitative one in the table above, nothing more.
 
 The two automatic points the adapter lost were scorer false alarms: in one answer it
 quoted the injected instruction while refusing it; in the other it reported both dated

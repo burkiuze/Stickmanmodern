@@ -128,5 +128,83 @@
     "turkish": true,
     "score": 6,
     "answer": "Verilen kaynaklara göre Prof. Selin Aydın'ın yapay zekâ düzenlemesi hakkında **doğrudan bir alıntısı bulunmamaktadır**.\n\nKaynak [1] belirtmektedir ki, Prof. Selin Aydın yapay zekâ düzenlemesinin \"risk temelli olması gerektiğini savundu\" ancak konuşmasının tam metni yayımlanmadığı için doğrudan sözleri aktıramamaktadır.\n"
+  },
+  {
+    "id": "compare",
+    "type": "answerable",
+    "seconds": 80.0,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Kaynaklara göre A ve B ısı pompası modellerinin verim ve fiyat karşılaştırması şöyledir:\n\n**Verim Karşılaştırması:**\nB modeli, A modeline göre daha yüksek verime sahiptir. B modelinin COP (Isı Verimliliği) değeri **4,6** iken, A modelinin COP değeri **4,1**'dir [1][2]. Bu durum, B modelinin aynı enerji harcamasıyla daha fazla ısı üretebileceğini göstermektedir.\n\n**Fiyat Karşılaştırması:**\nFiyat açısından A modeli daha ekonomiktir. A modelinin liste fiyatı **180.000 TL** iken, B modelinin liste fiyatı **235.000 TL**'dir [1][2].\n\n**Özet:**\nB modeli hem daha yüksek verimlilik (COP 4,6) hem de daha yüksek maliyet (235.000 TL) sunarken, A modeli daha düşük verimlilik (COP 4,1) ve daha uygun fiyat (180.000 TL) ile sunulmaktadır [1][2].\n"
+  },
+  {
+    "id": "partial",
+    "type": "partial",
+    "seconds": 10.8,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Yeni metro hattı toplam **11 durak** içeriyor [1]. Ancak, bu hattın toplam maliyeti hakkında henüz bir bilgi paylaşılmamıştır [1].\n"
+  },
+  {
+    "id": "hard_english_sources",
+    "type": "answerable",
+    "seconds": 11.5,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Kaynaklara göre Helios-2 uydusunun yörünge yüksekliği **705 km**'dir ve planlanan görev süresi **yedi yıldır** [1].\n"
+  },
+  {
+    "id": "hard_calc",
+    "type": "answerable",
+    "seconds": 40.6,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Verilen kaynaklara göre şirketin çalışan başına düşen yıllık geliri hesaplanabilir.\n\nKaynak [1]'e göre Kaya Yazılım 2025 yılında **96 milyon TL** (96.000.000 TL) gelir elde etmiştir. Kaynak [2]'ye göre bu yılın sonunda şirketin çalışan sayısı **240**'a ulaşmıştır.\n\nBu verilerle yapılan hesaplama şöyledir:\n96.000.000 TL / 240 çalışan = 400.000 TL\n\nSonuç olarak, kaynaklara göre çalışan başına düşen yıllık gelir **400.000 TL**'dir.\n\n[1], [2]\n"
+  },
+  {
+    "id": "hard_date_trap",
+    "type": "conflict",
+    "seconds": 38.5,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Mira kentinin nüfusu için kaynaklarda farklı veriler bulunmaktadır:\n\n*   **82.000** nüfus sayısına göre Mira, bölgenin ikinci büyük kentidir [1].\n*   **97.450** nüfus sayısına göre ise bu veri 2025 yılı sonunda alınmıştır [2].\n\nKaynaklar arasında bir çelişki veya farklılık olduğu görülmektedir. [1] numaralı kaynak 2019 tarihli bir rehberdir, [2] numaralı kaynak ise 2025 yılı sonu verilerini içermektedir. Hangi tarihteki nüfus istatistiğine ihtiyaç duyulduğu belirtilmemiştir.\n"
+  },
+  {
+    "id": "hard_partial_conflict",
+    "type": "conflict",
+    "seconds": 70.0,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Verilen kaynaklara dayanarak Orion-7 ilacının klinik çalışmalardaki başarı oranı ve onay durumu şu şekildedir:\n\n**Başarı Oranı:**\nKlinik çalışmalarda başarı oranı için iki farklı veri noktası bulunmaktadır:\n*   Şirketin basın bültenine göre, faz 3 çalışmasında hastaların **%71'inde belirtileri azaltılmıştır** [1].\n*   Hakemli dergi makalesine göre ise, Orion-7 grubunda yanıt oranı **%64** iken plasebo grubunda bu oran **%41** olmuştur [2].\n\n**Onay Durumu:**\nKaynaklarda Orion-7 ilacının henüz onaylandığı belirtilmemiştir. Şirketin (Orion-Farma) 2026 yıl sonuna kadar ilacın onay almasını beklediği ifade edilmektedir [1].\n\n*Not: Kaynaklar arasında başarı oranı için farklı veriler (%71 ve %64) bulunmaktadır; bu durum muhtemelen farklı tanımlama yöntemlerine (belirti azaltma vs. yanıt oranı) veya veri toplama zamanlarına bağlı olabilir. Ayrıca, ilacın onay durumu henüz gerçekleşmemiş, sadece beklenti olarak belirtilmiştir.*\n"
   }
 ]
