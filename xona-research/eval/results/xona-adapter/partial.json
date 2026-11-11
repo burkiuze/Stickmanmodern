@@ -1,0 +1,15 @@
+[
+  {
+    "id": "answer_basic",
+    "type": "answerable",
+    "seconds": 44.2,
+    "cites": true,
+    "valid_cites": true,
+    "facts": true,
+    "no_forbidden": true,
+    "behaviour": true,
+    "turkish": true,
+    "score": 6,
+    "answer": "Kuzeyköy Belediyesi'nin yeni bisiklet yolu projesi toplam 14 kilometrelik bir yol içermektedir [1]. Projenin tamamlanması planlanan tarih 2027 yılı yazıdır [1]. İkinci kaynakta [2] bisiklet yolu projesine dair herhangi bir bilgi bulunmamaktadır; sadece 2026 bütçesine ayrılan 42 milyon TL'lik ulaşım kalemi ve bütçenin meclisten geçmesi belirtilmiştir [2].\n\nSonuç: Proje 14 kilometre uzunluğunda olup 2027 yazında tamamlanmayı hedeflemektedir.\n"
+  }
+]
